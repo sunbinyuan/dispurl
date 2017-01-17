@@ -1,0 +1,28 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @url.name %>
+</p>
+
+<p>
+  <strong>Redirect to:</strong>
+  <%= @url.redirect_to %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @url.alias %>
+</p>
+
+<p>
+  <strong>Views:</strong>
+  <%= @url.views %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= link_to(request.base_url + '/' + @url.alias, request.base_url + '/' + @url.alias) %>
+</p>
+
+<%= link_to 'Edit', edit_url_path(@url) %> |
+<%= link_to 'Back', urls_path %>

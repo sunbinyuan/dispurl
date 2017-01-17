@@ -1,0 +1,42 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.valign-middle {
+    display: table;
+}
+
+.valign-middle .columns {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.valign-middle .columns,
+.valign-middle [class*="column"] + [class*="column"]:last-child {
+    float: none;
+}
+
+table tr.even.redir_0, table tr.alt.redir_0, table tr:nth-of-type(even).redir_0 , .redir_0 {
+	background-color: #efefef;
+}
+
+table tr.even.redir_1, table tr.alt.redir_1, table tr:nth-of-type(even).redir_1, .redir_1 {
+	background-color: #f2f9fc;
+}
+
+table tr.even.redir_2, table tr.alt.redir_2, table tr:nth-of-type(even).redir_2, .redir_2 {
+	background-color: #fdf0e3;
+}
+

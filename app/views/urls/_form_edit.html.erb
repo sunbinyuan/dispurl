@@ -1,0 +1,33 @@
+<%= form_for(@url) do |f| %>
+  <% if @url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:</h2>
+
+      <ul>
+      <% @url.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="row">
+    <%= f.label :redirect_to %><br>
+    <%= f.text_field :redirect_to %>
+  </div>
+  <div class="row">
+    <%= check_box_tag "url[redir_val1]", 1, 'yes' %>
+    <%= label_tag 'url[redir_val1]', 'One time clickable' %>
+  </div>
+  <div class="row">
+    <%= f.label :redir_limit %><br>
+    <%= f.text_field :redir_limit %>
+  </div>
+  <div class="row">
+    <%= f.submit %>
+  </div>
+<% end %>

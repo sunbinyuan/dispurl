@@ -1,0 +1,40 @@
+<%= form_for(@url) do |f| %>
+  <div class="row collapse">
+    <div class="small-10 columns">
+      <%= f.text_field :redirect_to, placeholder: 'Enter your URL...' %>
+    </div>
+    <div class="small-2 columns">
+      <%= f.submit "Shrink", class: "button postfix" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= check_box_tag "url[redir_val1]", 1, 'yes' %>
+      <%= label_tag 'url[redir_val1]', 'One time clickable' %>
+    </div>
+    <a id="toggler">More options</a>
+  </div>
+  <div class="row more" style="display: none">
+    <div class="small-6 columns small-centered">
+      <div class="row">
+        <div class="small-12 columns">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <%= f.label :alias %>
+          <%= f.text_field :alias %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <%= f.label :redir_limit %>
+          <%= f.text_field :redir_limit %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>

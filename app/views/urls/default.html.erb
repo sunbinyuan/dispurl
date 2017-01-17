@@ -1,0 +1,62 @@
+<% if @url.errors.any? %>
+  <div data-alert class="alert-box alert">
+    <%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:
+
+    <% @url.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    
+  </div>
+<% end %>  
+  
+<div class="row">
+  <h2>Disposable URL</h2>
+  <h4>Throw your URLs away after being viewed!</h4>
+</div>
+
+<%= form_for(@url) do |f| %>
+<div class="row">
+<div class="large-12 columns">
+  <div class="callout panel">
+
+  <div class="row collapse">
+    
+    <div class="small-10 columns">
+      <%= f.text_field :redirect_to, placeholder: 'Enter your URL...' %>
+    </div>
+    <div class="small-2 columns">
+      <%= f.submit "Shrink", class: "button postfix" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= check_box_tag "url[redir_val1]", 1, 'yes' %>
+      <%= label_tag 'url[redir_val1]', 'One time clickable' %>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+  
+<% end %>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="panel">
+      <h3>What is Disposable URL? </h3>
+      <p>Disposable URL is the URL shortener that let you choose the number of time your link can be viewed before it goes inactive.</p>
+      <p>By default, a guest can only make a normal or a one-time shortened URL. By signing up, you can customize and manage your links.</p>
+      <p>Follow us on social media!</p>
+      <div class="row">
+        <div class="large-4 medium-4 columns">
+          <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br>Everything you need to know about using the framework.</p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p><a href="http://zurb.com/university/code-skills">Foundation Code Skills</a><br>These online courses offer you a chance to better understand how Foundation works and how you can master it to create awesome projects.</p>
+        </div>
+        <div class="large-4 medium-4 columns">
+          <p><a href="http://foundation.zurb.com/forum">Foundation Forum</a><br>Join the Foundation community to ask a question or show off your knowlege.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
