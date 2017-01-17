@@ -1,0 +1,58 @@
+<% if @url.errors.any? %>
+  <div data-alert class="alert-box alert">
+    <%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:
+
+    <% @url.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    
+  </div>
+<% end %>
+<br>
+<%= render 'form' %>
+<div class="row">
+  <h4>Your URLs</h4>
+</div>
+
+<div class="row">
+  <div class="large-9 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Redirect to</th>
+          <th>Link</th>
+          <th>Views</th>
+          <th>Redirect times</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @urls.each do |url| %>
+          <tr class="redir_<%= url.redir_id %>">
+            <td><%= url.name %></td>
+            <td><%= link_to(url.redirect_to[0...20] + (url.redirect_to.length > 20 ? '...' : nil.to_s), url.redirect_to) %></td>
+            <td><%= link_to(request.base_url + '/' + url.alias, request.base_url + '/' + url.alias) %></td>
+            <td><%= url.views %></td>
+            <td><%= url.redir_limit %></td>
+            <td><%= link_to 'Edit', edit_url_path(url) %></td>
+            <td><%= link_to 'Destroy', url, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="large-3 columns">
+    <div class="panel">
+      <ul class="no-bullet">
+        <li><span style="font-size:1em; padding-left:1em; background:#e7e7e7;">&nbsp;</span> Gray - Inactive</li>
+        <li><span style="font-size:1em; padding-left:1em; background:#43AC6A;">&nbsp;</span> Green - Unlimited views</li>
+        <li><span style="font-size:1em; padding-left:1em; background:#f08a24;">&nbsp;</span> Orange - Limited views</li>
+      </ul>
+      
+    </div>
+    
+  </div>
+</div>
+<br>

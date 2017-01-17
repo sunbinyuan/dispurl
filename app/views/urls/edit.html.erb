@@ -1,0 +1,38 @@
+<% if @url.errors.any? %>
+  <div data-alert class="alert-box alert">
+    <%= pluralize(@url.errors.count, "error") %> prohibited this url from being saved:
+
+    <% @url.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    
+  </div>
+<% end %>
+<div class="row">
+  <h4>Editing Url</h4>
+</div>
+
+<%= form_for(@url) do |f| %>
+  <div class="row">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="row">
+    <%= f.label :redirect_to %>
+    <%= f.text_field :redirect_to %>
+  </div>
+  <div class="row">
+    <%= check_box_tag "url[redir_val1]", 1, (@url.redir_id - 1) > 0 ? 'yes' : nil %>
+    <%= label_tag 'url[redir_val1]', 'One time clickable' %>
+  </div>
+  <div class="row">
+    <%= f.label :redir_limit %>
+    <%= f.text_field :redir_limit %>
+  </div>
+  <div class="row">
+    <%= f.submit 'Update', class: "button"%>
+  </div>
+<% end %>
+<div class="row">
+  <%= link_to 'Back', urls_path %>
+</div>
