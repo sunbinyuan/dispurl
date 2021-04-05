@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Devise auth
@@ -22,7 +22,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 2.1.0', group: :doc
 
 gem 'puma', '~> 5.0'
 # Use ActiveModel has_secure_password
@@ -33,6 +33,13 @@ gem 'puma', '~> 5.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem "activerecord", ">= 5.2.4.5"
+gem "actionpack", ">= 5.2.4.3"
+gem "activesupport", ">= 5.2.4.3"
+gem "actionview", ">= 5.2.4.4"
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
