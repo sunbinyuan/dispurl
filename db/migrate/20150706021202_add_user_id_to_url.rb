@@ -1,4 +1,4 @@
-class AddUserIdToUrl < ActiveRecord::Migration
+class AddUserIdToUrl < ActiveRecord::Migration[5.0]
   def up
     add_reference :urls, :user, index: true, foreign_key: true
   end
