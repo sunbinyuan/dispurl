@@ -26,7 +26,7 @@ gem 'sdoc', '~> 2.1.0', group: :doc
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.6'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
